@@ -684,8 +684,6 @@ Suggestions, bug reports, and improvements are always appreciated.
 
 **Drishti Saha**
 
-Postgraduate in Computer Science
-
 GitHub:
 https://github.com/drishtiiii
 

@@ -493,102 +493,62 @@ The training process included visualization of both accuracy and loss metrics, a
 
 The training history indicates continuous improvement in model performance throughout the training process.
 
-### Training Accuracy
+## 📈 Training Accuracy
 
-- Training accuracy increased steadily over multiple epochs.
-- Validation accuracy also improved during training.
-- The model demonstrated successful convergence with minimal training error in later epochs.
-
-> **Training Accuracy**
+The training accuracy improved consistently throughout the 40 training epochs. Both the training and validation curves indicate that the CNN effectively learned meaningful features from MRI images and converged after approximately 20–25 epochs.
 
 <p align="center">
-<img src="images/accuracy.png" width="700">
+  <img src="accuracy.png" alt="Training Accuracy" width="750">
 </p>
 
 ---
 
-### Training Loss
+## 📉 Training Loss
 
-The loss curves illustrate the optimization process of the CNN.
-
-Observations:
-
-- Training loss consistently decreased as learning progressed.
-- Validation loss exhibited fluctuations during intermediate epochs before stabilizing.
-- The final epochs show improved convergence, indicating effective feature learning.
-
-> **Training Loss**
+The loss curves demonstrate the optimization process of the network. Training loss steadily decreased over time, while validation loss showed minor fluctuations before stabilizing in the later epochs, indicating effective learning.
 
 <p align="center">
-<img src="images/loss.png" width="700">
+  <img src="loss.png" alt="Training Loss" width="750">
 </p>
 
 ---
 
-# 🧪 Model Evaluation
+## 📊 Classification Report
 
-After training, the model was evaluated on unseen MRI images.
-
-The notebook includes evaluation using:
-
-- Prediction probabilities
-- Binary classification
-- Classification Report
-- Confusion Matrix
-
-These metrics provide insight into the model's performance beyond simple accuracy.
-
----
-
-# 📋 Classification Report
-
-The following classification report was generated during evaluation.
+The trained model was evaluated using precision, recall, F1-score, and overall accuracy.
 
 | Class | Precision | Recall | F1-Score |
-|--------|----------:|-------:|----------:|
+|--------|----------:|-------:|---------:|
 | No Tumor | 0.62 | 0.56 | 0.59 |
 | Tumor | 0.50 | 0.57 | 0.53 |
 
-### Overall Accuracy
+**Overall Accuracy:** **56%**
 
-```
-Accuracy : 0.56
-```
-
-> **Note:** These values are reported directly from the notebook's evaluation output.
+> *These values are taken directly from the notebook evaluation output.*
 
 ---
 
-# 🔲 Confusion Matrix
+## 🔲 Confusion Matrix
 
-The model's prediction performance is further summarized using the confusion matrix.
+The confusion matrix provides a detailed view of the model's predictions by comparing actual labels with predicted labels.
 
 ```
 [[5 4]
  [3 4]]
 ```
 
-This visualization highlights:
-
-- Correct classifications
-- False positives
-- False negatives
-- Class-wise prediction behaviour
-
 <p align="center">
-<img src="images/confusion_matrix.png" width="500">
+  <img src="confusion matrix.png" alt="Confusion Matrix" width="550">
 </p>
 
 ---
 
-# 🔍 Sample Predictions
+## 🖼️ Sample Predictions
 
-The trained CNN was tested on sample MRI scans to compare predicted labels with the actual ground truth.
-
-Example predictions include successful identification of both tumor and non-tumor MRI images.
+The notebook demonstrates predictions on unseen MRI scans. Each prediction displays both the predicted label and the corresponding ground truth, allowing visual verification of the model's performance.
 
 <p align="center">
-<img src="images/predictions.png" width="700">
+  <img src="predictions.png" alt="Sample Predictions" width="850">
 </p>
 
 The prediction workflow consists of:

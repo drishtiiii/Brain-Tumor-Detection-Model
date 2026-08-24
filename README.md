@@ -342,6 +342,10 @@ The validation evaluation includes:
 - Confusion matrix
 - False-negative identification
 
+### Validation Confusion Matrix
+
+![Validation Confusion Matrix](confusion%20matrix.png)
+
 ### False-Negative Analysis
 
 False negatives are cases where:
@@ -405,27 +409,27 @@ The improved implementation should be viewed as an iteration on the original pro
 
 \* The improved model achieved 100% accuracy on the 100-image test set used in this project. This result should not be interpreted as clinical accuracy or guaranteed real-world generalization. The original and improved results were obtained on different evaluation setups and therefore should not be treated as a direct controlled comparison.
 
-## Final Test Results
+## 📊 Final Test Results
 
-The final saved model achieved the following result on the 100-image test set:
+The final saved model was evaluated on an independent test set containing **100 MRI images**:
 
 | Metric | Result |
 |---|---:|
 | Total Test Images | **100** |
-| No Tumor | **50** |
-| Tumor | **50** |
+| No Tumor Images | **50** |
+| Tumor Images | **50** |
 | Accuracy | **100%** |
 | False Positives | **0** |
 | False Negatives | **0** |
 
-### Confusion Matrix
+### Final Test Confusion Matrix
+
+The confusion matrix shows that all 50 No Tumor images and all 50 Tumor images were correctly classified.
 
 ```text
 [[50  0]
  [ 0 50]]
-```
 
-![Confusion Matrix](confusion%20matrix.png)
 ![Final Test Confusion Matrix](test_confusion_matrix.png)
 The model correctly classified all 100 images in this particular test set.
 

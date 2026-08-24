@@ -430,6 +430,10 @@ The confusion matrix shows that all 50 No Tumor images and all 50 Tumor images w
 [[50  0]
  [ 0 50]]
 ```
+### Test Confusion Matrix
+
+![Final Test Confusion Matrix](confusion%20matrix.png)
+
 
 The model correctly classified all 100 images in this particular test set.
 

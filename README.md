@@ -1,4 +1,4 @@
-# 🧠 Brain Tumor Detection Using Convolutional Neural Networks (CNN)
+# 🧠 Brain Tumor Detection Using CNN — Improved Version
 
 <p align="center">
 
@@ -12,605 +12,513 @@
 
 ---
 
-# 📌 Overview
+## 📌 Overview
 
-Brain tumors are among the most critical neurological disorders, where early diagnosis significantly improves treatment planning and patient outcomes. Manual interpretation of MRI scans is both time-consuming and dependent on expert radiologists. This project explores the application of **Deep Learning** using **Convolutional Neural Networks (CNNs)** to automate the detection of brain tumors from MRI images.
+This repository is an **improved version of an earlier Brain Tumor Detection CNN project**.
 
-The model learns spatial features directly from MRI scans through multiple convolutional layers and performs binary classification to determine whether a tumor is present.
+The original project established a complete deep-learning workflow for binary classification of brain MRI images into **Tumor** and **No Tumor** classes. This updated version retains the custom CNN approach while improving the training analysis, evaluation methodology, prediction visualization, error analysis, and model saving workflow.
 
-The project demonstrates the complete deep learning workflow including data preprocessing, augmentation, CNN model development, training, evaluation, prediction, and visualization using **TensorFlow/Keras**.
+The project demonstrates an end-to-end image-classification pipeline using **TensorFlow/Keras**, including preprocessing, augmentation, CNN development, training, validation, independent testing, prediction visualization, confusion-matrix analysis, and false-negative analysis.
 
----
-
-# ✨ Features
-
-✔ Binary Brain Tumor Classification (Tumor / No Tumor)
-
-✔ MRI Image Processing
-
-✔ Image Data Augmentation
-
-✔ Custom CNN Architecture
-
-✔ Batch Normalization
-
-✔ Max Pooling
-
-✔ Adam Optimizer
-
-✔ Binary Crossentropy Loss
-
-✔ Training & Validation Accuracy Visualization
-
-✔ Training & Validation Loss Visualization
-
-✔ Classification Report
-
-✔ Confusion Matrix
-
-✔ Model Prediction on MRI Images
-
-✔ Trained Model Saving (.h5)
+> **Important:** This project is an educational/research implementation and is not intended for clinical diagnosis.
 
 ---
 
-# 🎯 Objectives
+## 🔄 Original Model → Improved Model
 
-The primary objectives of this project are:
+The updated implementation builds directly on the original CNN project rather than being a separate project.
 
-- Develop a Convolutional Neural Network capable of classifying MRI images into tumor and non-tumor categories.
-- Reduce manual intervention during the preliminary screening process.
-- Explore the effectiveness of deep learning techniques for medical image classification.
-- Understand the complete workflow involved in developing an image classification model using TensorFlow and Keras.
+| Aspect | Original Version | Improved Version |
+|---|---|---|
+| Task | Binary classification | Binary classification |
+| Model | Custom CNN | Custom CNN |
+| Input Size | 256 × 256 | 256 × 256 |
+| Optimizer | Adam | Adam |
+| Loss | Binary Crossentropy | Binary Crossentropy |
+| Training | 40 epochs | 40-epoch training history analyzed |
+| Data Augmentation | Horizontal / Vertical Flip | Horizontal / Vertical Flip |
+| Evaluation | Basic evaluation | Validation + independent test evaluation |
+| Classification | Default prediction rounding | Explicit 0.15 decision threshold |
+| Error Analysis | Limited | Dedicated false-negative analysis |
+| Prediction Visualization | Predicted / actual labels | Predicted / actual labels + tumor probability |
+| Test Set | Earlier evaluation setup | Separate 100-image test set |
+| Model Saving | `.h5` | `.keras` |
+| Training Analysis | Accuracy / loss curves | Accuracy / loss curves with overfitting analysis |
 
 ---
 
-# 🧰 Technologies Used
+## ✨ Features
+
+- Binary Brain Tumor Classification
+- MRI Image Processing
+- Image Data Augmentation
+- Custom CNN Architecture
+- Batch Normalization
+- Max Pooling
+- Adam Optimizer
+- Binary Crossentropy Loss
+- Training and Validation Accuracy Visualization
+- Training and Validation Loss Visualization
+- Classification Report
+- Confusion Matrix
+- Independent Test Set Evaluation
+- Prediction Visualization
+- Tumor Probability Reporting
+- False-Negative Analysis
+- Final Model Saving in `.keras` format
+
+---
+
+## 🎯 Objectives
+
+The project aims to:
+
+- Develop a CNN capable of classifying MRI images into Tumor and No Tumor categories.
+- Explore deep learning techniques for medical image classification.
+- Analyze model learning behaviour using training and validation curves.
+- Evaluate model performance using precision, recall, F1-score, accuracy, and confusion matrices.
+- Investigate false-negative predictions.
+- Evaluate the final model on a separate set of previously unseen MRI images.
+- Demonstrate an end-to-end TensorFlow/Keras image-classification workflow.
+
+---
+
+## 🧰 Technologies Used
 
 | Category | Technologies |
-|-----------|--------------|
+|---|---|
 | Programming Language | Python |
 | Deep Learning | TensorFlow, Keras |
 | Computer Vision | OpenCV |
 | Data Processing | NumPy, Pandas |
-| Visualization | Matplotlib |
+| Visualization | Matplotlib, Seaborn |
 | Machine Learning | Scikit-learn |
-| Development Environment | Google Colaboratory / Jupyter Notebook |
+| Development Environment | Jupyter Notebook / Google Colab |
 
 ---
 
-# 📂 Dataset
+## 📂 Dataset
 
-The project utilizes a dataset consisting of **Brain MRI images** categorized into two classes:
+The project uses brain MRI images belonging to two classes:
 
-- 🧠 Tumor
-- 🧠 No Tumor
+- 🧠 **Tumor**
+- 🧠 **No Tumor**
 
-The images are loaded using Keras' **ImageDataGenerator**, allowing efficient preprocessing and augmentation during training.
+The images are loaded using Keras `ImageDataGenerator`.
 
 ### Data Preprocessing
 
 The preprocessing pipeline includes:
 
 - Image resizing to **256 × 256 pixels**
-- RGB color format
-- Pixel normalization using rescaling (1/255)
-- Horizontal image flipping
-- Vertical image flipping
-- Automatic validation split
-- Batch loading using ImageDataGenerator
-
-These preprocessing techniques improve model generalization and reduce overfitting.
+- RGB image format
+- Pixel rescaling using `1/255`
+- Horizontal flipping
+- Vertical flipping
+- Validation split
+- Batch-based image loading
 
 ---
 
-# 📁 Repository Structure
+## 📁 Repository Structure
 
-```
+```text
 Brain-Tumor-Detection-Model/
 │
 ├── README.md
-├── archive_2.zip
 ├── brain_tumor.ipynb
-└── brain_tumorDetectionUsingCNN.ipynb
+├── brain_tumorDetectionUsingCNN.ipynb
+├── archive_2.zip
+├── accuracy.png
+├── loss.png
+├── confusion matrix.png
+├── predictions.png
+└── LICENSE
 ```
 
-### Repository Contents
+### Main Files
 
 | File | Description |
-|------|-------------|
-| brain_tumor.ipynb | Initial experimentation notebook containing preprocessing and exploratory work. |
-| brain_tumorDetectionUsingCNN.ipynb | Complete CNN implementation including training, evaluation and prediction. |
-| archive_2.zip | Dataset archive used during model development. |
-| README.md | Project documentation. |
+|---|---|
+| `brain_tumor.ipynb` | Earlier experimentation notebook |
+| `brain_tumorDetectionUsingCNN.ipynb` | Improved CNN implementation, training, evaluation, error analysis, and prediction |
+| `accuracy.png` | Training and validation accuracy curve |
+| `loss.png` | Training and validation loss curve |
+| `confusion matrix.png` | Confusion matrix visualization |
+| `predictions.png` | Sample prediction visualization |
+| `archive_2.zip` | Original dataset archive |
+| `README.md` | Project documentation |
 
 ---
 
-# 🚀 Project Workflow
+## 🚀 Project Workflow
 
-```
+```text
 MRI Images
-      │
-      ▼
+    │
+    ▼
 Data Preprocessing
-      │
-      ▼
+    │
+    ▼
 Data Augmentation
-      │
-      ▼
-CNN Model
-      │
-      ▼
-Model Training
-      │
-      ▼
-Evaluation
-      │
-      ▼
-Prediction
+    │
+    ▼
+Custom CNN
+    │
+    ▼
+40-Epoch Training
+    │
+    ▼
+Training / Validation Curves
+    │
+    ▼
+Restore Final Saved Model
+    │
+    ▼
+Validation Evaluation
+    │
+    ├── Classification Report
+    ├── Confusion Matrix
+    └── False-Negative Analysis
+    │
+    ▼
+Independent Test Set
+    │
+    ├── Predictions
+    ├── Prediction Images
+    ├── Classification Report
+    └── Confusion Matrix
+    │
+    ▼
+Final Model
 ```
-
----
-
-## 📖 Table of Contents
-
-- Overview
-- Features
-- Objectives
-- Technologies Used
-- Dataset
-- Repository Structure
-- Project Workflow
-- Installation
-- CNN Architecture
-- Model Training
-- Results
-- Future Improvements
-- License
-- Author
-
----
-
-# ⚙️ Installation
-
-Follow these steps to run the project locally.
-
-## 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/drishtiiii/Brain-Tumor-Detection-Model.git
-cd Brain-Tumor-Detection-Model
-```
-
----
-
-## 2️⃣ Create a Virtual Environment (Optional)
-
-### Windows
-
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-### Linux / macOS
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
----
-
-## 3️⃣ Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-If you are using **Google Colab**, simply install any missing libraries using:
-
-```python
-!pip install tensorflow opencv-python
-```
-
----
-
-## 4️⃣ Prepare the Dataset
-
-Download the Brain MRI dataset and place it in the appropriate directory.
-
-The notebooks expect the dataset to be extracted before training begins.
-
-Example folder structure:
-
-```
-Dataset/
-
-├── yes/
-│      image1.jpg
-│      image2.jpg
-│      ...
-│
-└── no/
-       image1.jpg
-       image2.jpg
-       ...
-```
-
----
-
-## 5️⃣ Run the Notebook
-
-Open either notebook using Jupyter Notebook or Google Colab.
-
-```
-brain_tumor.ipynb
-```
-
-or
-
-```
-brain_tumorDetectionUsingCNN.ipynb
-```
-
-Execute all cells sequentially.
 
 ---
 
 # 🧠 CNN Model Architecture
 
-This project implements a **custom Convolutional Neural Network (CNN)** designed specifically for binary MRI image classification.
+The project uses a custom Convolutional Neural Network designed for binary MRI image classification.
 
-The model automatically extracts spatial features from MRI scans and progressively learns complex representations of brain tissue.
+### Model Pipeline
 
-## Model Pipeline
-
-```
-Input Image
-      │
-      ▼
-Convolution Layer
-      │
-      ▼
+```text
+Input Image (256 × 256 × 3)
+        │
+        ▼
+Convolution
+        │
+        ▼
 Batch Normalization
-      │
-      ▼
+        │
+        ▼
 Max Pooling
-      │
-      ▼
-Convolution Layer
-      │
-      ▼
+        │
+        ▼
+Convolution
+        │
+        ▼
 Batch Normalization
-      │
-      ▼
+        │
+        ▼
 Max Pooling
-      │
-      ▼
-Convolution Layer
-      │
-      ▼
+        │
+        ▼
+Convolution
+        │
+        ▼
 Batch Normalization
-      │
-      ▼
+        │
+        ▼
 Max Pooling
-      │
-      ▼
-Convolution Layer
-      │
-      ▼
+        │
+        ▼
+Convolution
+        │
+        ▼
 Batch Normalization
-      │
-      ▼
+        │
+        ▼
 Max Pooling
-      │
-      ▼
+        │
+        ▼
 Flatten
-      │
-      ▼
+        │
+        ▼
 Dense (128)
-      │
-      ▼
+        │
+        ▼
 Dense (128)
-      │
-      ▼
+        │
+        ▼
 Dense (64)
-      │
-      ▼
-Output Layer
+        │
+        ▼
+Dense (1, Sigmoid)
+        │
+        ▼
+Tumor / No Tumor
 ```
 
----
+### Output
 
-## Layer Details
+The final sigmoid output represents the model's estimated probability of the Tumor class.
 
-### Input Layer
-
-- Image Size: **256 × 256**
-- RGB Channels
-- Normalized Pixel Values
-
----
-
-### Convolution Layers
-
-The CNN contains multiple convolutional blocks responsible for learning image features such as:
-
-- Edges
-- Texture
-- Shapes
-- Tumor boundaries
-- Brain structures
-
-Each convolution block is followed by:
-
-- Batch Normalization
-- Max Pooling
-
-This improves convergence while reducing spatial dimensions.
-
----
-
-### Batch Normalization
-
-Batch Normalization is used after convolution layers to:
-
-- Speed up training
-- Improve stability
-- Reduce internal covariate shift
-- Allow higher learning rates
-
----
-
-### Max Pooling
-
-Max Pooling reduces image dimensions while preserving important features.
-
-Benefits include:
-
-- Reduced computation
-- Lower memory usage
-- Improved generalization
-- Reduced overfitting
-
----
-
-### Fully Connected Layers
-
-After flattening the extracted features, multiple Dense layers perform the final classification.
-
-Dense Layers:
-
-- 128 Neurons
-- 128 Neurons
-- 64 Neurons
-
-These layers learn high-level feature relationships before making the final prediction.
-
----
-
-### Output Layer
-
-The final layer contains:
-
-- **1 neuron**
-- **Sigmoid activation**
-
-Output values:
-
-- **0 → No Tumor**
-- **1 → Tumor**
-
-Since this is a binary classification problem, **Binary Crossentropy** is used as the loss function.
+```text
+0 → No Tumor
+1 → Tumor
+```
 
 ---
 
 # ⚡ Model Compilation
 
-The CNN model is compiled using:
-
 | Parameter | Value |
-|-----------|-------|
+|---|---|
 | Optimizer | Adam |
 | Loss Function | Binary Crossentropy |
 | Evaluation Metric | Accuracy |
-
-The Adam optimizer was selected because of its adaptive learning capabilities and efficient convergence during deep learning model training.
-
----
-
-# 🎯 Training Configuration
-
-The model is trained using TensorFlow/Keras with the following settings.
-
-| Parameter | Value |
-|-----------|-------|
-| Epochs | 40 |
-| Image Size | 256 × 256 |
-| Color Mode | RGB |
-| Validation Data | Yes |
-| Shuffle | Enabled |
-
-The model is trained using mini-batches generated through **ImageDataGenerator**, enabling efficient preprocessing and augmentation during training.
 
 ---
 
 # 🔄 Data Augmentation
 
-To improve model robustness and reduce overfitting, the following augmentation techniques are applied:
+The training pipeline applies:
 
-- Image Rescaling (1/255)
-- Horizontal Flip
-- Vertical Flip
-- Validation Split
+- Rescaling (`1/255`)
+- Horizontal flipping
+- Vertical flipping
 
-These transformations expose the model to varied image orientations while preserving important anatomical structures.
+These transformations increase variation in the training images and help the model learn more robust visual features.
+
+---
+
+# 🎯 Training Configuration
+
+The CNN was trained for **40 epochs** to obtain a complete training history for analysis.
+
+| Parameter | Value |
+|---|---|
+| Epochs | 40 |
+| Image Size | 256 × 256 |
+| Color Mode | RGB |
+| Training Shuffle | Enabled |
+| Validation Data | Yes |
+| Batch Size | 16 |
+
+The 40-epoch run was retained for visualization and analysis of training behaviour. The final saved model was restored separately before final validation and test evaluation.
+
+---
+
+# 📈 Training Performance
+
+The 40-epoch training curves provide insight into how the CNN learned over time.
+
+## Training and Validation Accuracy
+
+![Training Accuracy](accuracy.png)
+
+The model's training accuracy eventually approached 100%, while validation accuracy remained lower and fluctuated. The divergence between training and validation performance indicates signs of **overfitting during later epochs**.
+
+## Training and Validation Loss
+
+![Training Loss](loss.png)
+
+Training loss decreased substantially during training, approaching zero in later epochs. Validation loss, however, fluctuated and increased after reaching lower values earlier in training. This further demonstrates the difference between training performance and generalization performance.
+
+The curves are retained to provide transparency into the model's learning behaviour rather than presenting only the final test result.
+
+---
+
+# 🔍 Validation Evaluation
+
+The validation dataset was evaluated using model prediction probabilities and an explicitly selected classification threshold of **0.15**.
+
+The validation evaluation includes:
+
+- Precision
+- Recall
+- F1-score
+- Accuracy
+- Confusion matrix
+- False-negative identification
+
+### False-Negative Analysis
+
+False negatives are cases where:
+
+```text
+Actual: Tumor
+Predicted: No Tumor
+```
+
+Because missed tumor cases are particularly important in this classification task, the improved notebook explicitly identifies these cases.
+
+The corresponding MRI images are displayed together with their predicted tumor probabilities, allowing further qualitative inspection of model behaviour.
+
+---
+
+# 🖼️ Prediction Visualization
+
+The improved notebook displays sample predictions using:
+
+- Predicted class
+- True class
+- Tumor probability
+
+![Sample Predictions](predictions.png)
+
+This provides a qualitative complement to the numerical evaluation metrics.
+
+---
+
+# 📊 Final Independent Test Evaluation
+
+A separate test dataset was used for final evaluation.
+
+### Test Dataset
+
+| Class | Images |
+|---|---:|
+| No Tumor | 50 |
+| Tumor | 50 |
+| **Total** | **100** |
+
+The test generator uses `shuffle=False` so that predictions remain aligned with the corresponding labels and image filenames during analysis.
+
+---
+
+## 📊 Original vs Improved Results
+
+The improved implementation should be viewed as an iteration on the original project. The two reported results were obtained under different evaluation setups, so the comparison is intended to show the development of the project rather than a controlled benchmark on the same test set.
+
+| Metric | Original Model | Improved Model |
+|---|---:|---:|
+| Reported Accuracy | **56%** | **100%*** |
+| Evaluation/Test Images | 16 | 100 |
+| False Positives | 4 | 0 |
+| False Negatives | 3 | 0 |
+| Confusion Matrix | `[[5, 4], [3, 4]]` | `[[50, 0], [0, 50]]` |
+| Decision Threshold | Default | 0.15 |
+| Error Analysis | Limited | False-negative analysis |
+| Prediction Probability | Not reported | Reported |
+| Model Format | `.h5` | `.keras` |
+
+\* The improved model achieved 100% accuracy on the 100-image test set used in this project. This result should not be interpreted as clinical accuracy or guaranteed real-world generalization. The original and improved results were obtained on different evaluation setups and therefore should not be treated as a direct controlled comparison.
+
+## Final Test Results
+
+The final saved model achieved the following result on the 100-image test set:
+
+| Metric | Result |
+|---|---:|
+| Total Test Images | **100** |
+| No Tumor | **50** |
+| Tumor | **50** |
+| Accuracy | **100%** |
+| False Positives | **0** |
+| False Negatives | **0** |
+
+### Confusion Matrix
+
+```text
+[[50  0]
+ [ 0 50]]
+```
+
+![Confusion Matrix](confusion%20matrix.png)
+
+The model correctly classified all 100 images in this particular test set.
+
+> **Important:** The 100% accuracy reported here was obtained on a 100-image test set. It should not be interpreted as clinical accuracy or proof of real-world diagnostic reliability. Larger, independently collected, and clinically validated datasets would be required to establish generalization performance.
 
 ---
 
 # 💾 Model Saving
 
-After training, the CNN model is saved for future inference.
+The final model is saved using the modern Keras format:
 
 ```python
-model.save("Modelcnn.h5")
+model.save("Modelcnn.keras")
 ```
 
-The saved model can later be loaded without retraining.
+It can later be loaded using:
 
 ```python
 from tensorflow.keras.models import load_model
 
-model = load_model("Modelcnn.h5")
+model = load_model("Modelcnn.keras")
 ```
 
 ---
 
 # ▶️ Usage
 
-After training completes:
+To reproduce the project:
 
-1. Load the trained model.
-2. Preprocess the MRI image.
-3. Pass the image through the CNN.
-4. Obtain the prediction probability.
-5. Convert probability into a binary prediction.
-
-The notebook also demonstrates prediction on sample MRI images and visualizes the predicted and actual labels for qualitative evaluation.
-
----
-
-# 📊 Model Training & Evaluation
-
-The CNN model was trained using TensorFlow/Keras over **40 epochs** on preprocessed MRI images. During training, the model learned hierarchical spatial features through successive convolution and pooling operations while monitoring performance on a validation dataset.
-
-The training process included visualization of both accuracy and loss metrics, allowing the learning behaviour of the model to be observed across epochs.
-
----
-
-# 📈 Training Performance
-
-The training history indicates continuous improvement in model performance throughout the training process.
-
-## 📈 Training Accuracy
-
-The training accuracy improved consistently throughout the 40 training epochs. Both the training and validation curves indicate that the CNN effectively learned meaningful features from MRI images and converged after approximately 20–25 epochs.
-
-<p align="center">
-  <img src="accuracy.png" alt="Training Accuracy" width="750">
-</p>
-
----
-
-## 📉 Training Loss
-
-The loss curves demonstrate the optimization process of the network. Training loss steadily decreased over time, while validation loss showed minor fluctuations before stabilizing in the later epochs, indicating effective learning.
-
-<p align="center">
-  <img src="loss.png" alt="Training Loss" width="750">
-</p>
-
----
-
-## 📊 Classification Report
-
-The trained model was evaluated using precision, recall, F1-score, and overall accuracy.
-
-| Class | Precision | Recall | F1-Score |
-|--------|----------:|-------:|---------:|
-| No Tumor | 0.62 | 0.56 | 0.59 |
-| Tumor | 0.50 | 0.57 | 0.53 |
-
-**Overall Accuracy:** **56%**
-
-> *These values are taken directly from the notebook evaluation output.*
-
----
-
-## 🔲 Confusion Matrix
-
-The confusion matrix provides a detailed view of the model's predictions by comparing actual labels with predicted labels.
-
-```
-[[5 4]
- [3 4]]
-```
-
-<p align="center">
-  <img src="confusion matrix.png" alt="Confusion Matrix" width="550">
-</p>
-
----
-
-## 🖼️ Sample Predictions
-
-The notebook demonstrates predictions on unseen MRI scans. Each prediction displays both the predicted label and the corresponding ground truth, allowing visual verification of the model's performance.
-
-<p align="center">
-  <img src="predictions.png" alt="Sample Predictions" width="850">
-</p>
-
-The prediction workflow consists of:
-
-1. Loading the trained CNN model.
-2. Preprocessing the MRI image.
-3. Performing inference using `model.predict()`.
-4. Converting prediction probabilities into binary labels.
-5. Comparing predicted labels with the actual class.
+1. Clone the repository.
+2. Install the required Python dependencies.
+3. Prepare the dataset.
+4. Open `brain_tumorDetectionUsingCNN.ipynb`.
+5. Execute the notebook cells sequentially.
+6. Train the CNN.
+7. Review the training and validation curves.
+8. Evaluate the validation set.
+9. Inspect false-negative predictions.
+10. Evaluate the independent test set.
 
 ---
 
 # 💡 Key Learnings
 
-During the development of this project, several important deep learning concepts were explored:
+This project provided practical experience with:
 
 - Medical image preprocessing
-- Image augmentation techniques
-- Convolutional Neural Networks (CNN)
+- Image augmentation
+- Convolutional Neural Networks
 - Batch Normalization
 - Max Pooling
-- Binary Image Classification
-- Adam Optimizer
-- Binary Crossentropy Loss
-- Model Evaluation
-- Classification Metrics
-- Confusion Matrix Analysis
-- TensorFlow/Keras model development
+- Binary classification
+- Adam optimization
+- Binary Crossentropy
+- Model evaluation
+- Classification metrics
+- Confusion-matrix analysis
+- False-negative analysis
+- Probability-based prediction thresholds
+- Training-curve analysis
+- TensorFlow/Keras model saving and loading
 
 ---
 
 # ⚠ Limitations
 
-Although the project demonstrates an end-to-end deep learning workflow for MRI image classification, there are several opportunities for improvement.
+Despite the improved evaluation pipeline, the project has several limitations:
 
-Current limitations include:
-
-- Binary classification only (Tumor / No Tumor)
-- Notebook-based implementation
-- No web interface for inference
-- Limited evaluation metrics
-- Dataset size may affect generalization
-- No explainability techniques such as Grad-CAM
-
-These limitations provide opportunities for future enhancements and experimentation.
+- The classification task is limited to Tumor / No Tumor.
+- The independent test set contains only 100 images.
+- The dataset may not represent the diversity of real-world MRI scans.
+- The observed 100% test accuracy may not generalize to external datasets.
+- The model does not provide clinical explainability.
+- No Grad-CAM or other visual explanation method is currently implemented.
+- No external clinical validation has been performed.
 
 ---
 
 # 🚀 Future Improvements
 
-This project provides a strong foundation for brain tumor classification using Convolutional Neural Networks. Several enhancements can further improve its performance, usability, and scalability.
+Potential future improvements include:
 
-## Planned Improvements
-
-- Implement Transfer Learning using pretrained architectures such as VGG16, ResNet50, EfficientNet, or DenseNet.
-- Expand the dataset to improve model generalization.
-- Perform multiclass classification for different tumor types.
-- Integrate Grad-CAM or other explainability techniques to visualize model decisions.
-- Develop a web application using Streamlit or Flask for real-time predictions.
-- Deploy the trained model to cloud platforms such as Render, Hugging Face Spaces, or Streamlit Community Cloud.
-- Optimize hyperparameters using automated tuning techniques.
-- Improve evaluation with ROC-AUC, Precision-Recall curves, and cross-validation.
+- Transfer learning using VGG16, VGG19, ResNet50, EfficientNet, or DenseNet.
+- Larger and more diverse datasets.
+- Multiclass classification of different brain tumor types.
+- Grad-CAM for model interpretability.
+- ROC-AUC and Precision-Recall analysis.
+- Stratified cross-validation.
+- Systematic threshold tuning using validation data.
+- Hyperparameter optimization.
+- External dataset evaluation.
+- Development of a Streamlit or FastAPI inference application.
+- Deployment of the trained model.
 
 ---
 
@@ -620,23 +528,7 @@ This project provides a strong foundation for brain tumor classification using C
 - Keras Documentation
 - OpenCV Documentation
 - Scikit-learn Documentation
-- Brain MRI Image Dataset (Kaggle)
-
----
-
-# 🤝 Contributing
-
-Contributions are welcome.
-
-If you would like to improve this project:
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit your changes.
-4. Push the branch.
-5. Open a Pull Request.
-
-Suggestions, bug reports, and improvements are always appreciated.
+- Brain MRI image dataset used during development
 
 ---
 
@@ -644,10 +536,8 @@ Suggestions, bug reports, and improvements are always appreciated.
 
 **Drishti Saha**
 
-GitHub:
+GitHub:  
 https://github.com/drishtiiii
-
-If you found this repository useful, consider giving it a ⭐.
 
 ---
 
@@ -655,23 +545,4 @@ If you found this repository useful, consider giving it a ⭐.
 
 This project is licensed under the MIT License.
 
-Feel free to use, modify, and distribute this project for educational and research purposes.
-
-See the LICENSE file for more details.
-
----
-
-# ⭐ Support
-
-If you like this project,
-
-⭐ Star the repository
-
-🍴 Fork it
-
-📢 Share it with others
-
-Thank you for visiting this repository!
-
----
-
+Feel free to use, modify, and distribute the project for educational and research purposes.

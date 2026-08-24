@@ -426,7 +426,7 @@ The final saved model achieved the following result on the 100-image test set:
 ```
 
 ![Confusion Matrix](confusion%20matrix.png)
-
+![Final Test Confusion Matrix](test_confusion_matrix.png)
 The model correctly classified all 100 images in this particular test set.
 
 > **Important:** The 100% accuracy reported here was obtained on a 100-image test set. It should not be interpreted as clinical accuracy or proof of real-world diagnostic reliability. Larger, independently collected, and clinically validated datasets would be required to establish generalization performance.

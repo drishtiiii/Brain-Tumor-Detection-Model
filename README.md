@@ -429,16 +429,17 @@ The confusion matrix shows that all 50 No Tumor images and all 50 Tumor images w
 ```text
 [[50  0]
  [ 0 50]]
-
+```text
+ 
 The model correctly classified all 100 images in this particular test set.
 
-> **Important:** The 100% accuracy reported here was obtained on a 100-image test set. It should not be interpreted as clinical accuracy or proof of real-world diagnostic reliability. Larger, independently collected, and clinically validated datasets would be required to establish generalization performance.
+> **Important:** The reported 100% accuracy was obtained on a 100-image test set. It should not be interpreted as clinical accuracy or proof of real-world diagnostic reliability. Larger, independently collected, and clinically validated datasets would be required to assess the model's generalization performance.
 
 ---
 
 # 💾 Model Saving
 
-The final model is saved using the modern Keras format:
+The final trained model was saved using the modern Keras `.keras` format:
 
 ```python
 model.save("Modelcnn.keras")
